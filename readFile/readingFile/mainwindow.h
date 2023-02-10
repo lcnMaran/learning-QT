@@ -8,6 +8,7 @@
 #include "QFileDialog"
 #include "QStandardPaths"
 #include <QTextStream>
+#include <QFileInfo>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

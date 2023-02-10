@@ -20,7 +20,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::openDoc()
 {
-    QFile filename = QFileDialog::getOpenFileName(this, "Open .txt", "~/", "QFile files (*.txt)");
+    const QString myLocal = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
+
+    QFile filename = QFileDialog::getOpenFileName(this, "Open .txt", myLocal , "QFile files (*.txt)");
 
     if (!filename.open(QIODevice::ReadWrite | QIODevice::Text))
     {
@@ -37,7 +39,6 @@ void MainWindow::openDoc()
 void MainWindow::saveDoc()
 {
     QFile filename = QFileDialog::getSaveFileName((QWidget* )0, "Save to..", QString(), "*.txt");
-        //if (QFileInfo(filename).suffix().isEmpty()) { filename.(".txt"); }
 
     if(!filename.open(QIODevice::WriteOnly))
     {
